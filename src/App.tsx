@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {ChangeEvent, useState} from 'react';
+import './app.module.css';
+import Display from "./components/Display/Display";
+import Buttons from "./components/Buttons/Buttons";
+import style from './app.module.css'
+import History from "./components/History/History";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [elements, setElements] = useState<number[]>([])
+
+    const buttonsHelper = (value: number) => {
+        setElements((prevState) => [...prevState, value])
+    }
+
+    return (
+        <div className={style.appWrapper}>
+            <div className={style.calc_wrapper}>
+                <Display
+                         displayedValue={elements.join('')}/>
+                <Buttons buttonsHelper={buttonsHelper}/>
+            </div>
+            <History/>
+        </div>
+    );
 }
 
 export default App;
