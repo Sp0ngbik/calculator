@@ -8,7 +8,8 @@ type T_Display = {
 
 const Display: React.FC<T_Display> = ({displayedValue}) => {
     return (
-        <input className={style.display} value={displayedValue} placeholder={'0'}/>
+        <input className={style.display} value={displayedValue} onChange={() => {
+        }} placeholder={'0'}/>
     );
 };
 

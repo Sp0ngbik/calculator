@@ -3,72 +3,78 @@ import style from './buttons.module.css'
 
 type T_Buttons = {
     buttonsHelper: (el: number) => void
+    currentOperator: (el: string) => void
 }
 
-const Buttons: React.FC<T_Buttons> = ({buttonsHelper}) => {
+const Buttons: React.FC<T_Buttons> = ({buttonsHelper, currentOperator}) => {
     return (
         <div className={style.buttonPad}>
             <div>
-                <div onClick={() => {
+                <button onClick={() => {
                     buttonsHelper(7)
                 }}>7
-                </div>
-                <div onClick={() => {
+                </button>
+                <button onClick={() => {
                     buttonsHelper(8)
                 }}>8
-                </div>
-                <div onClick={() => {
+                </button>
+                <button onClick={() => {
                     buttonsHelper(9)
                 }}>9
-                </div>
-                <div>*
-                </div>
+                </button>
+                <button onClick={() => currentOperator('*')}>*
+                </button>
             </div>
             <div>
-                <div onClick={() => {
+                <button onClick={() => {
                     buttonsHelper(4)
                 }}>4
-                </div>
-                <div onClick={() => {
+                </button>
+                <button onClick={() => {
                     buttonsHelper(5)
                 }}>5
-                </div>
-                <div onClick={() => {
+                </button>
+                <button onClick={() => {
                     buttonsHelper(6)
                 }}>6
-                </div>
-                <div onClick={() => {
-                    // buttonsHelper(*)
+                </button>
+                <button onClick={() => {
+                    currentOperator('-')
                 }}>-
-                </div>
+                </button>
 
             </div>
             <div>
-                <div onClick={() => {
+                <button onClick={() => {
                     buttonsHelper(1)
                 }}>1
-                </div>
-                <div onClick={() => {
+                </button>
+                <button onClick={() => {
                     buttonsHelper(2)
                 }}>2
-                </div>
-                <div onClick={() => {
+                </button>
+                <button onClick={() => {
                     buttonsHelper(3)
                 }}>3
-                </div>
-                <div onClick={() => {
-                    // buttonsHelper(3)
+                </button>
+                <button onClick={() => {
+                    currentOperator('+')
                 }}>+
-                </div>
+                </button>
             </div>
             <div>
-                <div>*</div>
-                <div onClick={() => {
+                <button onClick={() => {
                     buttonsHelper(0)
                 }}>0
-                </div>
-                <div>C</div>
-                <div>=</div>
+                </button>
+                <button onClick={() => {
+                    // currentOperator('c')
+                }}>C
+                </button>
+                <button className={style.equal} onClick={() => {
+                    currentOperator('=')
+                }}>=
+                </button>
             </div>
         </div>
     );

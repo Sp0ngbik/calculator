@@ -4,17 +4,32 @@
     justify-content: space-between;
 }
 
-.buttonPad div{
+.buttonPad div {
     width: 100%;
-    justify-content: space-evenly;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
 }
-.buttonPad div div {
+
+.buttonPad div button {
+    display: flex;
+    text-align: center;
     height: 50px;
     width: 50px;
     align-items: center;
     justify-content: center;
     border: 1px solid red;
     margin: 10px 0;
+}
 
+.equal {
+    grid-column: 2 span;
+}
+
+.buttonPad div .equal {
+    width: 170px;
+}
+
+.buttonPad > div button:hover {
+    cursor: pointer;
 }
